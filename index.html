@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.remove('no-js')</script>
+<title>株式会社Good Will Hunting | コーポレートサイト</title>
+<meta name="description" content="株式会社Good Will Hunting（Good Will Hunting Inc.）— 善き意志で、人の可能性を切り拓く。ウェルネス・オンラインパーソナルトレーニング・ヘルスケア・AI・M&Aを横断する事業グループ。">
+<!-- OGP / SNSシェア -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="株式会社Good Will Hunting">
+<meta property="og:title" content="株式会社Good Will Hunting">
+<meta property="og:description" content="善き意志で、人の可能性を切り拓く。ウェルネス・ヘルスケア・テクノロジーを横断する事業グループ。">
+<meta property="og:url" content="https://shinmi725810-sketch.github.io/goodwillhunting/">
+<meta property="og:image" content="https://shinmi725810-sketch.github.io/goodwillhunting/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="株式会社Good Will Hunting">
+<meta name="twitter:description" content="善き意志で、人の可能性を切り拓く。ウェルネス・ヘルスケア・テクノロジーを横断する事業グループ。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%232E4034'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23C9AC7E' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --marble:#F4F1EA;         /* 薄い大理石のベース */
+    --marble-deep:#ECE7DC;
+    --ink:#28302A;            /* 深いチャコールグリーン */
+    --ink-soft:#5A625B;
+    --green:#2E4034;          /* ディープグリーン */
+    --green-mid:#3E5545;
+    --gold:#B08D57;           /* ゴールド（高級感アクセント・大きめ要素/装飾用） */
+    --gold-soft:#C9AC7E;
+    --gold-ink:#846334;       /* 小さな文字用の濃いゴールド（可読性確保） */
+    --line:rgba(40,48,42,.14);
+    --sun:rgba(255,241,206,.55);
+    --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro",serif;
+    --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,"Segoe UI",sans-serif;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--marble);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ===== 背景：大理石 + 朝陽 + 観葉植物の影 ===== */
+  .bg{position:fixed;inset:0;z-index:-3;pointer-events:none}
+  /* 大理石の地：微かな暖色グラデ + かすかな脈 */
+  .bg-marble{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 78% -10%, #FBFAF5 0%, rgba(251,250,245,0) 45%),
+      radial-gradient(140% 120% at 12% 108%, var(--marble-deep) 0%, rgba(236,231,220,0) 55%),
+      linear-gradient(160deg, #F7F4ED 0%, #F1EDE4 100%);
+  }
+  .bg-veins{
+    position:absolute;inset:0;opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'><g fill='none' stroke='%23C9C2B2' stroke-width='0.8' opacity='0.5'><path d='M-20 140 C120 90 260 210 420 150 C520 112 560 190 640 160'/><path d='M-20 300 C140 270 220 360 380 320 C500 289 580 350 640 320'/><path d='M40 -20 C90 120 30 240 120 360 C190 452 150 560 210 640'/><path d='M420 -20 C470 120 400 260 500 380 C560 452 540 560 600 640'/></g></svg>");
+    background-size:760px 760px;
+  }
+  /* 朝陽：左上からの暖かい光 */
+  .bg-sun{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(75% 60% at 8% -6%, var(--sun) 0%, rgba(255,241,206,0) 55%),
+      radial-gradient(50% 45% at 96% 2%, rgba(255,246,224,.35) 0%, rgba(255,246,224,0) 60%);
+  }
+  /* 観葉植物の影：朝陽が差して大理石に落ちる葉影 */
+  .bg-leaves{
+    position:absolute;top:-4%;left:-6%;width:min(720px,72vw);opacity:.16;
+    filter:blur(2.5px) saturate(.7);
+    transform:rotate(-4deg);
+    color:#33402F;
+  }
+  .bg-leaves--r{
+    left:auto;right:-10%;top:auto;bottom:-8%;
+    width:min(560px,58vw);opacity:.12;transform:rotate(168deg);
+  }
+
+  /* ===== レイアウト ===== */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  section{position:relative}
+  .eyebrow{
+    font-family:var(--sans);font-size:.72rem;letter-spacing:.42em;
+    text-transform:uppercase;color:var(--gold-ink);font-weight:600;
+    display:inline-block;margin-bottom:1.1rem;
+  }
+  .eyebrow::before{content:"";display:inline-block;width:26px;height:1px;
+    background:var(--gold);vertical-align:middle;margin-right:.9em;opacity:.8}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  h2.head{
+    font-family:var(--serif);font-weight:500;color:var(--green);
+    font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.4;letter-spacing:.03em;
+    margin-bottom:1.4rem;
+  }
+  .lead{font-size:1.02rem;color:var(--ink-soft);max-width:52ch}
+
+  /* ===== ヘッダー ===== */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:20;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px clamp(20px,4vw,48px);
+    background:rgba(244,241,234,0);transition:background .4s,box-shadow .4s,padding .4s;
+  }
+  header.nav.scrolled{
+    background:rgba(246,243,237,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    box-shadow:0 1px 0 var(--line);padding:12px clamp(20px,4vw,48px);
+  }
+  .brand{font-family:var(--serif);font-size:1.02rem;letter-spacing:.14em;color:var(--green);text-decoration:none;white-space:nowrap}
+  .brand small{display:block;font-family:var(--sans);font-size:.56rem;letter-spacing:.34em;color:var(--gold);margin-top:2px}
+  nav.menu{display:flex;gap:clamp(14px,2vw,30px);align-items:center}
+  nav.menu a{font-size:.78rem;letter-spacing:.12em;color:var(--ink-soft);text-decoration:none;transition:color .25s;white-space:nowrap}
+  nav.menu a:hover{color:var(--green)}
+  nav.menu a.cta{
+    border:1px solid var(--gold);color:var(--green);padding:8px 18px;border-radius:1px;
+  }
+  nav.menu a.cta:hover{background:var(--gold);color:#fff}
+  .menu-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px;z-index:30}
+  .menu-toggle span{display:block;width:24px;height:2px;background:var(--green);margin:5px 0;transition:transform .3s,opacity .3s}
+  .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .menu-scrim{position:fixed;inset:0;background:rgba(40,48,42,.28);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;z-index:15}
+  .menu-scrim.open{opacity:1;visibility:visible}
+
+  /* ===== ヒーロー ===== */
+  .hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 80px}
+  .hero .wrap{width:100%}
+  .hero-mark{font-family:var(--sans);font-size:.74rem;letter-spacing:.5em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:2rem}
+  .hero h1{
+    font-family:var(--serif);font-weight:500;color:var(--green);
+    font-size:clamp(2.3rem,6.4vw,4.6rem);line-height:1.28;letter-spacing:.02em;
+  }
+  .hero h1 .accent{color:var(--gold)}
+  .hero-sub{margin-top:2rem;font-size:clamp(1rem,1.6vw,1.15rem);color:var(--ink-soft);max-width:46ch}
+  .hero-en{margin-top:2.6rem;font-family:var(--serif);font-style:italic;color:var(--gold);letter-spacing:.06em;font-size:1.02rem}
+  .hero-cta{margin-top:2.8rem;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;font-size:.82rem;letter-spacing:.14em;text-decoration:none;
+    padding:15px 32px;border-radius:1px;transition:all .3s;
+  }
+  .btn-primary{background:var(--green);color:#F4F1EA}
+  .btn-primary:hover{background:var(--green-mid);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--green)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .scroll-cue{margin-top:4rem;font-size:.66rem;letter-spacing:.3em;color:var(--ink-soft);text-transform:uppercase;opacity:.7}
+
+  /* ===== 汎用セクション余白 ===== */
+  .sec{padding:clamp(80px,11vw,140px) 0}
+  .divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto}
+
+  /* ===== 想い（Philosophy）===== */
+  .phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);margin-top:3rem}
+  .phil-card{
+    background:rgba(255,255,255,.42);border:1px solid var(--line);
+    padding:clamp(28px,3.4vw,46px);border-radius:2px;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+    position:relative;overflow:hidden;
+  }
+  .phil-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(var(--gold),var(--gold-soft))}
+  .phil-card .kw{font-family:var(--serif);font-size:1.5rem;color:var(--green);letter-spacing:.06em;margin-bottom:.3rem}
+  .phil-card .kw span{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-bottom:.7rem}
+  .phil-card p{font-size:.98rem;color:var(--ink-soft)}
+  .phil-close{margin-top:3rem;font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.5rem);color:var(--green);line-height:1.7;text-align:center;letter-spacing:.04em}
+
+  /* ===== ビジョン ===== */
+  .vision{position:relative}
+  .vision .wrap{position:relative;z-index:1}
+  .vision-lead{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2.5rem);color:var(--green);line-height:1.6;letter-spacing:.04em;max-width:20ch}
+  .vision-lead .g{color:var(--gold)}
+  .vision-body{margin-top:2.2rem;max-width:56ch;color:var(--ink-soft);font-size:1.02rem}
+  .vision-stats{display:flex;gap:clamp(24px,5vw,64px);margin-top:3.4rem;flex-wrap:wrap}
+  .vstat .n{font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--green);line-height:1}
+  .vstat .n .u{font-size:.9rem;color:var(--gold);margin-left:.2em}
+  .vstat .l{font-size:.76rem;letter-spacing:.1em;color:var(--ink-soft);margin-top:.6rem}
+
+  /* ===== 事業ライン ===== */
+  .biz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:3.2rem}
+  .biz{
+    background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:2px;
+    padding:34px 30px;transition:transform .35s,box-shadow .35s,border-color .35s;
+    position:relative;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  }
+  .biz:hover{transform:translateY(-6px);box-shadow:0 22px 40px -26px rgba(40,48,42,.4);border-color:var(--gold-soft)}
+  .biz .no{font-family:var(--serif);font-size:.82rem;color:var(--gold-ink);letter-spacing:.12em}
+  .biz .ic{width:34px;height:34px;margin:14px 0 18px;color:var(--green)}
+  .biz h3{font-family:var(--serif);font-weight:500;font-size:1.18rem;color:var(--green);margin-bottom:.7rem;letter-spacing:.03em}
+  .biz .en{font-size:.62rem;letter-spacing:.22em;color:var(--gold-ink);text-transform:uppercase;display:block;margin-bottom:1rem}
+  .biz p{font-size:.9rem;color:var(--ink-soft)}
+  a.biz{text-decoration:none;color:inherit;display:block}
+  a.biz .more{display:inline-flex;align-items:center;gap:.4em;margin-top:1rem;font-size:.78rem;letter-spacing:.1em;color:var(--gold-ink);transition:gap .3s}
+  a.biz:hover .more{gap:.9em}
+  a.biz .more::after{content:"→"}
+
+  /* ===== 強み ===== */
+  .str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,54px);margin-top:3.4rem}
+  .str{text-align:left}
+  .str .num{font-family:var(--serif);font-size:2.4rem;color:var(--gold-soft);line-height:1}
+  .str h3{font-family:var(--serif);font-weight:500;font-size:1.2rem;color:var(--green);margin:1rem 0 .8rem;letter-spacing:.03em}
+  .str p{font-size:.93rem;color:var(--ink-soft)}
+
+  /* ===== 会社概要 ===== */
+  .company{background:linear-gradient(160deg,rgba(46,64,52,.04),rgba(176,141,87,.05))}
+  .co-table{margin-top:2.8rem;border-top:1px solid var(--line);max-width:820px}
+  .co-row{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:20px 4px;border-bottom:1px solid var(--line)}
+  .co-row dt{font-size:.82rem;letter-spacing:.1em;color:var(--gold);font-weight:600;padding-top:2px}
+  .co-row dd{font-size:.98rem;color:var(--ink)}
+  .co-row dd small{color:var(--ink-soft)}
+
+  /* ===== お問い合わせ ===== */
+  .contact{text-align:center}
+  .contact h2{font-family:var(--serif);font-weight:500;color:var(--green);font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:.05em;line-height:1.5}
+  .contact p{margin-top:1.6rem;color:var(--ink-soft);max-width:48ch;margin-left:auto;margin-right:auto}
+  .contact .btn{margin-top:2.6rem}
+
+  /* ===== フッター ===== */
+  footer{background:var(--green);color:rgba(244,241,234,.86);padding:clamp(48px,7vw,80px) 0 40px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;align-items:flex-start}
+  footer .f-brand{font-family:var(--serif);font-size:1.3rem;letter-spacing:.1em;color:#fff}
+  footer .f-brand small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.34em;color:var(--gold-soft);margin-top:6px}
+  footer .f-brand p{font-size:.82rem;color:rgba(244,241,234,.6);margin-top:1.2rem;max-width:34ch;line-height:1.9}
+  footer nav{display:flex;flex-direction:column;gap:12px}
+  footer nav a{color:rgba(244,241,234,.78);text-decoration:none;font-size:.84rem;letter-spacing:.08em;transition:color .25s}
+  footer nav a:hover{color:var(--gold-soft)}
+  .f-bottom{max-width:var(--maxw);margin:clamp(40px,6vw,64px) auto 0;padding:24px 28px 0;border-top:1px solid rgba(244,241,234,.14);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.72rem;letter-spacing:.06em;color:rgba(244,241,234,.5)}
+
+  /* ===== スクロール出現アニメ ===== */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .no-js .reveal{opacity:1;transform:none}   /* JS無効/失敗時も本文を必ず表示 */
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+  .reveal[data-d="4"]{transition-delay:.32s}
+
+  /* ===== レスポンシブ ===== */
+  @media(max-width:880px){
+    .menu-toggle{display:block}
+    nav.menu{
+      position:fixed;top:0;right:0;height:100svh;width:min(80vw,320px);
+      flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;
+      background:rgba(246,243,237,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      box-shadow:-8px 0 44px -22px rgba(40,48,42,.55);
+      padding:48px;transform:translateX(105%);transition:transform .4s cubic-bezier(.2,.7,.2,1);
+      z-index:22;
+    }
+    nav.menu.open{transform:none}
+    nav.menu a{font-size:1.05rem;letter-spacing:.1em}
+    nav.menu a.cta{padding:12px 26px}
+    .phil-grid{grid-template-columns:1fr}
+    .biz-grid{grid-template-columns:repeat(2,1fr)}
+    .str-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    .biz-grid{grid-template-columns:1fr}
+    .co-row{grid-template-columns:1fr;gap:4px}
+    .co-row dt{padding-top:0}
+    .hero-cta{flex-direction:column}
+    .btn{text-align:center}
+  }
+  @media print{
+    .bg-leaves,.scroll-cue,header.nav{display:none}
+    .reveal{opacity:1;transform:none}
+    body{background:#fff}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- 背景（大理石・朝陽・葉影） -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-marble"></div>
+  <div class="bg-veins"></div>
+  <div class="bg-sun"></div>
+  <svg class="bg-leaves" viewBox="0 0 400 400" fill="currentColor">
+    <path d="M60 20 C60 120 120 200 200 240 C140 200 120 120 130 40 C110 90 90 60 60 20Z"/>
+    <path d="M150 10 C170 110 230 180 320 200 C250 190 210 120 210 30 C190 80 175 55 150 10Z"/>
+    <path d="M20 150 C120 170 190 230 220 320 C205 250 140 210 40 205 C90 190 60 175 20 150Z"/>
+    <path d="M240 60 C250 150 300 210 380 240 C320 215 285 150 300 70 C275 115 265 95 240 60Z"/>
+    <g stroke="currentColor" stroke-width="4" fill="none" opacity=".7">
+      <path d="M70 30 C110 120 160 190 210 235"/>
+      <path d="M160 25 C210 110 260 165 315 195"/>
+    </g>
+  </svg>
+  <svg class="bg-leaves bg-leaves--r" viewBox="0 0 400 400" fill="currentColor">
+    <path d="M60 20 C60 120 120 200 200 240 C140 200 120 120 130 40 C110 90 90 60 60 20Z"/>
+    <path d="M150 10 C170 110 230 180 320 200 C250 190 210 120 210 30 C190 80 175 55 150 10Z"/>
+    <path d="M20 150 C120 170 190 230 220 320 C205 250 140 210 40 205 C90 190 60 175 20 150Z"/>
+  </svg>
+</div>
+
+<!-- ヘッダー -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top">GOOD WILL HUNTING<small>株式会社Good Will Hunting</small></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="primaryMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="menu" id="primaryMenu">
+    <a href="#philosophy">想い</a>
+    <a href="#vision">ビジョン</a>
+    <a href="#business">事業</a>
+    <a href="#strength">強み</a>
+    <a href="#company">会社概要</a>
+    <a class="cta" href="#contact">お問い合わせ</a>
+  </nav>
+</header>
+<div class="menu-scrim" id="menuScrim" aria-hidden="true"></div>
+
+<!-- ヒーロー -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-mark reveal">Good Will Hunting&nbsp;Inc.</div>
+    <h1 class="reveal" data-d="1">善き意志で、<br>人の<span class="accent">可能性</span>を切り拓く。</h1>
+    <p class="hero-sub reveal" data-d="2">ウェルネス、ヘルスケア、そしてテクノロジー。<br>一人ひとりが自分のビジョンを描き、叶えられる社会へ。</p>
+    <p class="hero-en reveal" data-d="3">— Enrich the mind, and life follows.</p>
+    <div class="hero-cta reveal" data-d="4">
+      <a class="btn btn-primary" href="#business">事業を見る</a>
+      <a class="btn btn-ghost" href="#philosophy">私たちの想い</a>
+    </div>
+    <div class="scroll-cue reveal" data-d="4">Scroll ↓</div>
+  </div>
+</section>
+
+<!-- 想い（社名に込めた思い） -->
+<section class="sec" id="philosophy">
+  <div class="wrap">
+    <span class="eyebrow reveal">Our Name, Our Will</span>
+    <h2 class="head reveal" data-d="1">社名に込めた、二つの想い。</h2>
+    <p class="lead reveal" data-d="1">私たちの名前には、「どう在りたいか」という約束が刻まれています。</p>
+
+    <div class="phil-grid">
+      <div class="phil-card reveal" data-d="1">
+        <div class="kw"><span>Service Brand</span>VISIONS — ビジョンズ</div>
+        <p>一人ひとりがビジョンを持ち、それを叶えられるように支える会社でありたい。今ビジョンを持つ人はもちろん、まだ持っていない人も、ここでビジョンを生み出し、叶えていける。そんなビジョンを持った仲間が集まる場所であることを願っています。</p>
+      </div>
+      <div class="phil-card reveal" data-d="2">
+        <div class="kw"><span>Company Name</span>GOOD WILL HUNTING — 善き意志</div>
+        <p>社名に込めたのは、「善意がある会社」であること。名前からして善意ある行動を取っていく会社でありたい。みんなが豊かになるためには、まず心を豊かにすることが大事だと考えています。この道を、みんなでつなげていきます。</p>
+      </div>
+    </div>
+
+    <p class="phil-close reveal" data-d="2">人を変え、社会を変える。<br>その出発点は、いつも「善き意志」から。</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ビジョン -->
+<section class="sec vision" id="vision">
+  <div class="wrap">
+    <span class="eyebrow reveal">Our Vision</span>
+    <h2 class="vision-lead reveal" data-d="1">目指すのは、<span class="g">日本最大級</span>の<br>総合ヘルスケア企業。</h2>
+    <p class="vision-body reveal" data-d="2">私たちはAIを活用して開発した事業を複数展開しています。その先にあるのは、ヘルスケアからプライベート・仕事・体型まで、暮らし全体に寄り添う総合的なヘルスケアサービス。人の体を変え、生産性を上げるには、その人の日々の生活スタイルまで深く理解する必要がある。だからこそ私たちは、あらゆる視点からその人の人生に寄り添います。<br><br>日本最大級のウェルネス — その先へ。業界の常識を塗り替える存在になること、それが私たちの掲げる目標です。</p>
+
+    <div class="vision-stats">
+      <div class="vstat reveal" data-d="1"><div class="n">2027<span class="u">年末</span></div><div class="l">ウェルネス施設（サウナ・カフェ・ジム）開業予定</div></div>
+      <div class="vstat reveal" data-d="2"><div class="n">7<span class="u">領域</span></div><div class="l">横断する事業ポートフォリオ</div></div>
+      <div class="vstat reveal" data-d="3"><div class="n">日本一<span class="u">へ</span></div><div class="l">総合ウェルネスの頂を目指す</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 事業ライン -->
+<section class="sec" id="business">
+  <div class="wrap">
+    <span class="eyebrow reveal">Our Business</span>
+    <h2 class="head reveal" data-d="1">7つの領域を、ひとつの意志で。</h2>
+    <p class="lead reveal" data-d="1">ウェルネスからテクノロジーまで。それぞれの事業が、人の可能性を広げるために連携しています。</p>
+
+    <div class="biz-grid">
+      <div class="biz reveal" data-d="1">
+        <div class="no">01</div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg>
+        <h3>ウェルネス複合施設</h3><span class="en">Wellness Complex</span>
+        <p>サウナ・カフェ・ジムを備えた、心と体を整える複合空間。日本最大級のウェルネスチェーンを目指す、私たちの旗艦事業です。</p>
+      </div>
+      <a class="biz reveal" data-d="2" href="https://shinmi725810-sketch.github.io/visions-match-lp/" target="_blank" rel="noopener">
+        <div class="no">02</div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="7" r="3.4"/><path d="M5 21c0-4 3.2-6.5 7-6.5S19 17 19 21"/></svg>
+        <h3>オンラインパーソナルトレーニング</h3><span class="en">VISIONS</span>
+        <p>スマホ1台で完結する、LINE・Zoom型のパーソナルトレーニング。運動・食事・メンタルまで、一人ひとりに寄り添う指導を届けます。</p>
+        <span class="more">サービスサイトを見る</span>
+      </a>
+      <div class="biz reveal" data-d="3">
+        <div class="no">03</div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21h18M6 21V8l6-4 6 4v13M10 21v-5h4v5"/></svg>
+        <h3>フィットネスM&A・店舗運営</h3><span class="en">M&A / Operations</span>
+        <p>優れたジム・スタジオを継承し、仕組みで磨き上げる。M&Aによる出店と多店舗運営で、ウェルネスの拠点を全国へ広げます。</p>
+      </div>
+      <div class="biz reveal" data-d="1">
+        <div class="no">04</div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+        <h3>AI・テクノロジー</h3><span class="en">AI &amp; Technology</span>
+        <p>事業のすべてをAIで仕組み化する。自動化と内製開発により、少人数でも大きな価値を生み出すインフラを構築しています。</p>
+      </div>
+      <div class="biz reveal" data-d="2">
+        <div class="no">05</div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.6-9.2-9.2C1.2 8.6 3 5 6.3 5c2 0 3.4 1.2 5.7 4 2.3-2.8 3.7-4 5.7-4 3.3 0 5.1 3.6 3.5 6.8C19 16.4 12 21 12 21Z"/></svg>
+        <h3>ヘルスケア</h3><span class="en">Healthcare</span>
+        <p>体型・生活習慣・メンタルまで。人生のあらゆる悩みに向き合う、総合的なヘルスケアサービスを開発しています。</p>
+      </div>
+      <div class="biz reveal" data-d="3">
+        <div class="no">06</div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 21h10"/></svg>
+        <h3>HP・LP制作</h3><span class="en">Web Production</span>
+        <p>成果から逆算したホームページ・ランディングページ制作。ブランドの信頼と集客を、確かなデザインと設計で形にします。</p>
+      </div>
+      <div class="biz reveal" data-d="1">
+        <div class="no">07</div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11l18-7-7 18-2.5-7.5L3 11Z"/></svg>
+        <h3>広告運用代行</h3><span class="en">Ad Management</span>
+        <p>データに基づく広告運用で、費用対効果を追求。集客の入口から数値改善まで、伴走型でサポートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 強み -->
+<section class="sec" id="strength">
+  <div class="wrap">
+    <span class="eyebrow reveal">Why Good Will Hunting</span>
+    <h2 class="head reveal" data-d="1">選ばれ、信頼される理由。</h2>
+
+    <div class="str-grid">
+      <div class="str reveal" data-d="1">
+        <div class="num">01</div>
+        <h3>AIで、事業を仕組み化する</h3>
+        <p>すべての事業をAIで自動化・仕組み化。属人性を排し、少人数でもスケールする再現性の高い経営基盤を持っています。</p>
+      </div>
+      <div class="str reveal" data-d="2">
+        <div class="num">02</div>
+        <h3>M&Aで、着実に拡大する</h3>
+        <p>ゼロからの立ち上げに加え、優れた事業の継承・再生で拡大。実績ある基盤を磨き上げ、堅実に版図を広げます。</p>
+      </div>
+      <div class="str reveal" data-d="3">
+        <div class="num">03</div>
+        <h3>人が、幸せになる設計</h3>
+        <p>働くメンバーが継続的に報酬を積み上げられる制度を設計。安心して挑戦でき、関わる全員が豊かになる未来を目指します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 会社概要 -->
+<section class="sec company" id="company">
+  <div class="wrap">
+    <span class="eyebrow reveal">Company Profile</span>
+    <h2 class="head reveal" data-d="1">会社概要</h2>
+
+    <dl class="co-table reveal" data-d="1">
+      <div class="co-row"><dt>商号</dt><dd>株式会社Good Will Hunting<br><small>Good Will Hunting Inc.</small></dd></div>
+      <div class="co-row"><dt>代表者</dt><dd>代表取締役社長　三沢　実春</dd></div>
+      <div class="co-row"><dt>所在地</dt><dd>〒203-0052　東京都東久留米市幸町三丁目7-20</dd></div>
+      <div class="co-row"><dt>設立</dt><dd>2025年</dd></div>
+      <div class="co-row"><dt>資本金</dt><dd>1,000,000円</dd></div>
+      <div class="co-row"><dt>取引銀行</dt><dd>三井住友銀行</dd></div>
+      <div class="co-row"><dt>電話</dt><dd><a href="tel:07085408353" style="color:inherit;text-decoration:none">070-8540-8353</a></dd></div>
+      <div class="co-row"><dt>メール</dt><dd><a href="mailto:visions@goodwillhunting.co.jp" style="color:inherit;text-decoration:none">visions@goodwillhunting.co.jp</a></dd></div>
+      <div class="co-row"><dt>事業内容</dt><dd>ウェルネス複合施設の運営／オンラインパーソナルトレーニング（VISIONS）／フィットネス事業のM&A・店舗運営／AI・テクノロジー開発／ヘルスケア事業／ホームページ・LP制作／広告運用代行</dd></div>
+      <div class="co-row"><dt>沿革</dt><dd>
+        2025年　株式会社Good Will Hunting設立／オンラインパーソナルトレーニング「VISIONS」開始<br>
+        2026年　ウェルネス複合施設 1号店（東京都東久留米市）基本設計に着手<br>
+        2027年末　1号店（サウナ・カフェ・ジム）開業予定
+      </dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- お問い合わせ -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="display:block;text-align:center">Contact</span>
+    <h2 class="reveal" data-d="1">ご相談・お問い合わせ</h2>
+    <p class="reveal" data-d="1">事業提携、M&A、採用、取材などのご相談を承っております。<br>まずはお気軽にご連絡ください。</p>
+    <a class="btn btn-primary reveal" data-d="2" href="mailto:visions@goodwillhunting.co.jp">メールで問い合わせる</a>
+    <p class="reveal" data-d="2" style="margin-top:1.4rem;font-size:.86rem;letter-spacing:.06em;color:var(--ink-soft)">
+      visions@goodwillhunting.co.jp　／　070-8540-8353
+    </p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="f-brand">
+      GOOD WILL HUNTING
+      <small>株式会社Good Will Hunting</small>
+      <p>善き意志で、人の可能性を切り拓く。<br>ウェルネス・ヘルスケア・テクノロジーを横断する事業グループ。</p>
+    </div>
+    <nav>
+      <a href="#philosophy">想い</a>
+      <a href="#vision">ビジョン</a>
+      <a href="#business">事業</a>
+      <a href="#strength">強み</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+  </div>
+  <div class="f-bottom">
+    <span>© 2025–2026 Good Will Hunting Inc. All rights reserved.</span>
+    <span>東京都東久留米市幸町三丁目7-20</span>
+  </div>
+</footer>
+
+<script>
+  // ヘッダーの背景切替
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // モバイルメニュー（ハンバーガー）
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('primaryMenu');
+  const scrim = document.getElementById('menuScrim');
+  const setMenu = (open) => {
+    menu.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  scrim.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // スクロール出現アニメ
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
