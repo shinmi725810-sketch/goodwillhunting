@@ -53,6 +53,7 @@
     "addressLocality": "東久留米市",
     "streetAddress": "幸町三丁目7-20"
   },
+  "sameAs": ["https://www.instagram.com/shinji_misawa/"],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
@@ -1177,6 +1178,94 @@
         color: var(--text);
       }
 
+      /* ---------- instagram ---------- */
+      .ig-icon {
+        width: 1.1em;
+        height: 1.1em;
+        flex: none;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+      }
+      .ig-icon .ig-dot {
+        fill: currentColor;
+        stroke: none;
+      }
+      .btn-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+      }
+      @media (max-width: 860px) {
+        .btn-row {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+      }
+      .btn-ig {
+        gap: 0.7rem;
+      }
+      .ig-links {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0 0;
+        padding: 0;
+      }
+      .ig-links a {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        padding: 0.9rem 1.4rem;
+        border: 1px solid var(--line);
+        text-align: left;
+        transition: border-color 0.3s, color 0.3s;
+      }
+      .ig-links a:hover {
+        border-color: var(--leaf);
+        color: var(--leaf);
+      }
+      .ig-links .ig-icon {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+      .ig-links span {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+      .ig-links b {
+        font-size: 0.95rem;
+        color: var(--text);
+        font-weight: 500;
+      }
+      .foot-social {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      .foot-social a {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: var(--font-en);
+        letter-spacing: 0.1em;
+        transition: color 0.2s;
+      }
+      .foot-social a:hover {
+        color: var(--leaf);
+      }
+      .foot-social .ig-icon {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+
       /* ---------- reveal ---------- */
       .js .fade {
         opacity: 0;
@@ -1595,14 +1684,19 @@
                 <figcaption><span class="en">Lesson</span>オンラインレッスンの様子</figcaption>
               </figure>
             </div>
-            <a
-              class="btn"
-              href="https://shinmi725810-sketch.github.io/visions-match-lp/"
-              target="_blank"
-              rel="noopener"
-              >Visit Site <span class="arrow" aria-hidden="true">↗</span
-              ><span class="sr-only">（新しいタブで開きます）</span></a
-            >
+            <div class="btn-row">
+              <a
+                class="btn"
+                href="https://shinmi725810-sketch.github.io/visions-match-lp/"
+                target="_blank"
+                rel="noopener"
+                >Visit Site <span class="arrow" aria-hidden="true">↗</span
+                ><span class="sr-only">（新しいタブで開きます）</span></a
+              >
+              <a class="btn btn-ig" href="https://www.instagram.com/visionsonline07/" target="_blank" rel="noopener"
+                ><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.4" cy="6.6" r="1.1" class="ig-dot" /></svg>Instagram<span class="sr-only">（新しいタブで開きます）</span></a
+              >
+            </div>
           </div>
         </section>
 
@@ -1853,6 +1947,18 @@
             >visions@goodwillhunting.co.jp</a
           >　／　<a href="tel:07085408353">070-8540-8353</a>
         </p>
+        <ul class="ig-links fade" aria-label="公式Instagram">
+          <li>
+            <a href="https://www.instagram.com/shinji_misawa/" target="_blank" rel="noopener"
+              ><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.4" cy="6.6" r="1.1" class="ig-dot" /></svg><span><b>@shinji_misawa</b>Good Will Hunting</span><span class="sr-only">（新しいタブで開きます）</span></a
+            >
+          </li>
+          <li>
+            <a href="https://www.instagram.com/visionsonline07/" target="_blank" rel="noopener"
+              ><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.4" cy="6.6" r="1.1" class="ig-dot" /></svg><span><b>@visionsonline07</b>VISIONS オンラインパーソナル</span><span class="sr-only">（新しいタブで開きます）</span></a
+            >
+          </li>
+        </ul>
       </section>
     </main>
 
@@ -1912,6 +2018,10 @@
           ><a href="#business">Business</a><a href="#facility">Facility</a
           ><a href="#company">Company</a><a href="privacy.html">Privacy</a>
         </nav>
+        <div class="foot-social" role="group" aria-label="Instagram">
+          <a href="https://www.instagram.com/shinji_misawa/" target="_blank" rel="noopener" aria-label="GWH Instagram（新しいタブで開きます）"><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.4" cy="6.6" r="1.1" class="ig-dot" /></svg><span>GWH</span></a>
+          <a href="https://www.instagram.com/visionsonline07/" target="_blank" rel="noopener" aria-label="VISIONS Instagram（新しいタブで開きます）"><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.4" cy="6.6" r="1.1" class="ig-dot" /></svg><span>VISIONS</span></a>
+        </div>
         <span
           >© 2025–2026 Good Will Hunting
           Inc.　東京都東久留米市幸町三丁目7-20</span
